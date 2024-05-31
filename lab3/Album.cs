@@ -17,10 +17,10 @@ namespace lab3
             Tracks = tracks ?? throw new ArgumentNullException(nameof(tracks));
         }
 
-        public TimeSpan DurationInOneAlbum(List<Track> tracks)
+        public TimeSpan DurationInOneAlbum()
         {
             TimeSpan AllDur = new TimeSpan(0);
-            foreach (var track in tracks)
+            foreach (var track in Tracks)
             {
                 AllDur += track.Duration;
             }
@@ -28,10 +28,7 @@ namespace lab3
 
         }
 
-        internal TimeSpan DurationInOneAlbum()
-        {
-            throw new NotImplementedException();//означает функция еще не реализована, добавила чтобы реализовать его в методе класса Studio
-        }
+
     }
 }
 
