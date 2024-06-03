@@ -10,11 +10,15 @@ namespace lab3
 {
     public class Studio
     {
-        public List<Album> Albums { get; protected set; }
-        public Studio(List<Album> albums)//проверить список альбомов на null - сделала сеттер protected
+        public List<Album> Albums { get; set; }
+        public Studio(List<Album> albums)//проверить список альбомов на null
         {
-            Albums = albums; //?? throw new ArgumentNullException(nameof(albums));
-            //this.Albums = new List<Album>() ?? throw new ArgumentNullException(nameof(List<Album>));  или так??
+            Albums = albums ?? throw new ArgumentNullException(nameof(albums));
+            this.Albums = albums ?? throw new ArgumentNullException(nameof(albums));
+            foreach (var album in Albums) 
+            { 
+                if (album ==null) throw new ArgumentNullException(nameof(album));
+            }
         }
 
         public TimeSpan DurationInAllAlbums(List<Album> Albums)
